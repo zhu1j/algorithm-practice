@@ -31,7 +31,7 @@ public class T5403_IntervalSum  {
             prefixSum[i] = prefixSum[i - 1] + nums[i];
         }
 
-        for (int i = 0; i < q; i++) {
+        for (int i = 0; i < q; i++) {  //包前包后
             int l = scanner.nextInt();
             int r = scanner.nextInt();
             System.out.println(prefixSum[r] - prefixSum[l - 1]);
