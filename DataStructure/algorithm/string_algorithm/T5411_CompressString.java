@@ -15,20 +15,34 @@ package string_algorithm;
  *
  */
 public class T5411_CompressString {
-    static void main() {
 
-    }
-    public static int compress(char[] chars){
-        int anchor = 0,write = 0;
-        for (int read = 0; read < chars.length; read++) {
-            if (read + 1 == chars.length || chars[read + 1] != chars[read]) {
-                chars[write++] = chars[anchor];  //原地算法
-                if (read > anchor) {
-                    for (char c : ("" + (read - anchor + 1)).toCharArray()) {
+//    public static int compress(char[] chars){
+//        int anchor = 0,write = 0;
+//        for (int read = 0; read < chars.length; read++) {
+//            if (read + 1 == chars.length || chars[read + 1] != chars[read]) {
+//                chars[write++] = chars[anchor];  //原地算法
+//                if (read > anchor) {
+//                    for (char c : ("" + (read - anchor + 1)).toCharArray()) {
+//                        chars[write++] = c;
+//                    }
+//                }
+//                anchor = read + 1;
+//            }
+//        }
+//        return write;
+//    }
+
+    public static int compress(char[] chars) {
+        int write = 0,anchor = 0;
+        for (int read = 0; read < chars.length;read++) {
+            if (read+1== chars.length || chars[read + 1] != chars[read]) {
+                chars[write++] = chars[anchor];
+                if (read>anchor) {
+                    for (char c:("" + (read-anchor+1)).toCharArray()){
                         chars[write++] = c;
                     }
                 }
-                anchor = read + 1;
+                anchor = read +1;
             }
         }
         return write;
