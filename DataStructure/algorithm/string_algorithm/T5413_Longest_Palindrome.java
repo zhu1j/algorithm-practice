@@ -17,6 +17,8 @@ public class T5413_Longest_Palindrome {
             int len1 = expandAroundCenter(s, i, i);
             // 偶数回文：中心i和i+1之间
             int len2 = expandAroundCenter(s, i, i + 1);
+
+
             // 当前中心最长回文长度
             int maxLen = Math.max(len1, len2);
 
@@ -37,11 +39,15 @@ public class T5413_Longest_Palindrome {
         return s.substring(start, end + 1); //不包后
     }
 
-    private static int expandAroundCenter(String s, int left, int right) {
+    private static int expandAroundCenter(String s, int left, int right) { //中心扩展算法
         while (left >= 0 && right < s.length() && s.charAt(left) == s.charAt(right)) {
             left--;
             right++;
         }
         return right - left - 1;   //返回的是最大回文串长度（左右坐标为当前中心坐标），多走一步所以减1
+
+        /**
+         * 就是是先判断上一轮的合法，然后直接扩展，  下一轮的判断的是扩展后的，这个判断有个滞后性
+         */
     }
 }
