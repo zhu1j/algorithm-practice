@@ -31,7 +31,9 @@ public class Sushu {
 
     //方法2：埃氏筛 （原理：在 2到n 中，凡是质数的整数倍都属于合数，全部剔除，剩余未剔除数字就是区间内所有质数。）
     public static int eratosthenes(int n) {
-        boolean[] isPrime = new boolean[]; //
+        boolean[] isPrime = new boolean[0]; //链表
         int count = 0;
+
+        return 0;
     }
 }
